@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		.main {
+			background-image: url(stol.jpeg);
+			background-size: 100%;
+		}
+		.message {
+			width: 200px;
+			margin-left: 1050px;
+			margin-top: 150px;
+			padding-top: 15px;
+			padding-left: 15px;
+			padding-bottom: 15px;
+		}
+		.do_shpors {
+			width: 100px;
+			cursor: pointer;
+		}
+
+		.learn {
+			width: 100px;
+			cursor: pointer;
+		}
+
+		.choice {
+			margin-left: 1050px;
+			display: flex;
+		}
+		.loc2 {
+			display: none;
+		}
+		.loc3 {
+			display: none;
+		}
+		.loc4 {
+			display: none;
+		}
+		.box {
+			width: 150px;
+			height: 50px;
+			background: lightgray;
+			position: absolute;
+		}
+		.darkness {
+			width: 100vw;
+  			height: 100vh;
+			background: black;
+			display: none;
+			position: absolute;
+		}
+		.unselectable {
+			user-select: none;
+		}
+		.test {
+			display: none;
+		}
+
+
+		/* _ */
+		/* _ */
+
+		.loc3_choice {
+			display: none;
+		}
+		.go_choice {
+			margin-left: 1050px;
+		}
+		.go {
+			width: 100px;
+			cursor: pointer;
+		}
+		.not_go {
+			width: 100px;
+			cursor: pointer;
+		}
+
+		
+
+		.class_choice {
+			margin-left: 1050px;
+		}
+		.go_toilet {
+			width: 100px;
+		}
+		.not_go_toilet {
+			width: 100px;
+		}
+		.answers_loc1 {
+			display: none;
+			width: 150px;
+		}
+
+		/* _ */
+		/* _ */
+
+		.zadanie3 {
+			width: 500px;
+			height: 120px;
+		}
+		.zadanie1 {
+			width: 500px;
+			height: 50px;
+		}
+		.zadanie2 {
+			width: 500px;
+			height: 150px;
+		}
+		.zadanie4 {
+			width: 400px;
+			height: 70px;
+		}
+		.full_img {
+			width: 100%;
+			height: 100%;
+		}
+		.die {
+			display: none;
+		}
+		.toilet_shpors {
+			display: none;
+		}
+		.shpors_list {
+			display: none;
+		}
+		.scoraya {
+			display: none;
+		}
+		.armia {
+			display: none;
+		}
+		.makdak {
+			display: none;
+		}
+		.office {
+			display: none;
+		}
+		.rich {
+			display: none;
+		}
+		.homeless {
+			display: none;
+		}
+		.armia_son {
+			display: none;
+		}
+	</style>
+</head>
+<body class="main">
+	<div class="loc1">
+		<div class="answers_loc1 bg-warning rounded border border-dark">
+			<h3>Ответы!</h3>
+			<p>1) 7</p>
+			<p>2) 31</p>
+			<p>3) 3</p>
+			<p>4) 3</p>
+		</div>
+		<div class="message bg-primary rounded border border-dark">
+			Завтра у тебя ЕГЭ, но ты абсолютно ничего не учил. Что будешь делать?
+		</div>
+		<div class="choice">
+			<div class="do_shpors bg-light text-center border border-dark">
+				Сделать шпоры
+			</div>
+			<div class="learn bg-light text-center border border-dark">
+				Зубрить до утра
+			</div>
+		</div>
+	</div>
+	<div class="loc2">
+		<h2>Время: <span class="time"></span></h2>
+		<h2>Шпор собрано: <span class="shpors"></span></h2>
+		<div class="message bg-warning rounded border-dark border">
+			У тебя 5 секунд на то, чтобы найти верные ответы. 
+		</div>
+		<div class="find_answers">
+			<div class="box rounded pt-2 pl-5 bg-primary" style="left: 100px; top: 300px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 right bg-secondary" style="left: 300px; top: 450px;">верно</div>
+			<div class="box rounded pt-2 pl-5 right bg-success" style="left: 200px; top: 700px;">верно</div>
+			<div class="box rounded pt-2 pl-5 bg-danger" style="left: 600px; top: 400px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 bg-warning" style="left: 800px; top: 400px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 bg-info" style="left: 350px; top: 600px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 bg-danger" style="left: 500px; top: 600px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 right" style="left: 540px; top: 350px;">верно</div>
+			<div class="box rounded pt-2 pl-5 bg-primary" style="left: 600px; top: 460px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 bg-success" style="left: 450px; top: 470px;">неверно</div>
+			<div class="box rounded pt-2 pl-5 bg-warning" style="left: 380px; top: 330px;">неверно</div>
+		</div>
+		
+	</div>
+	<div class="loc3">
+		<div class="darkness unselectable">
+			<div class="bg-warning text-center mx-auto rounded" style="width: 200px;">Проснись! Долби ЛКМ!</div>
+			<h1 class="bg-warning rounded" style="width: 200px;">Время: <span class="time_loc3"></span></h1>
+				
+		</div>
+		<div class="loc3_choice">
+			<div class="message bg-primary rounded border border-dark">
+				Доброе утро! Впрочем, пора в школу. Пойдешь или останешься?
+			</div>
+			<div class="d-flex go_choice">
+				<div class="bg-light go rounded border border-dark">
+					Идти
+				</div>
+				<div class="bg-light not_go rounded border border-dark">
+					Не идти
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="loc4">
+		<div class="loc4_choice">
+			<div class="message bg-primary rounded border border-dark">
+				Ты в классе. Экзамен начался. Попроситься в туалет или сразу сделать тест?
+			</div>
+			<div class="d-flex class_choice">
+				<div class="bg-light go_toilet rounded border border-dark">
+					Идти в туалет
+				</div>
+				<div class="bg-light not_go_toilet rounded border border-dark">
+					Остаться
+				</div>
+			</div>
+		</div>
+		<div class="test">
+			<div class="d-flex">
+				<div class="zadanie1 ml-3">
+					<img src="zadania/1.jpg" class="full_img">
+					<input type="text" name="" class="otv">
+				</div>
+				<div class="zadanie2 ml-5">
+					<img src="zadania/2.jpg" class="full_img">
+					<input type="text" name="" class="otv">
+				</div>
+			</div>
+			<div class="d-flex mt-5">
+				<div class="zadanie3 ml-3">
+					<img src="zadania/3.jpg" class="full_img ">
+					<input type="text" name="" class="otv">
+				</div>
+				<div class="zadanie4 ml-5">
+					<img src="zadania/4.jpg" class="full_img">
+					<input type="text" name="" class="otv">
+				</div>
+			</div>
+				
+			<button class="btn btn-primary mt-5">
+				Проверить!
+			</button>
+		</div>
+	</div>
+
+	<div class="loc5">
+		<div class="message die bg-warning border-dark border rounded">
+			Из-за недосыпа вы упали, ударились головой об унитаз и погибли от кровоизлияния в мозг. Зачем нужно было идти в туалет, у тебя же все равно не было шпаргалок!
+		</div>
+		<div class="message toilet_shpors bg-warning border-dark border rounded">
+			Не зря подготовил шпоры! Успей запомнить ответы, у тебя мало времени!
+			<div class="">
+				<p class="shpors_list">1) 7</p>
+				<p class="shpors_list">2) 31</p>
+				<p class="shpors_list">3) 3</p>
+			</div>
+		</div>
+	</div>
+	<!-- Конец игры - смерть -->
+	<div class="scoraya">
+		<div class="message bg-warning border-dark border rounded">
+		Вы погибли. F.
+		</div>
+	</div>
+	<!-- Конец игры - макдак -->
+	<div class="makdak">
+		<div class="message bg-warning border-dark border rounded">
+			Ваш балл: 50. Теперь вы кассир в макдаке! Поздравляем!
+		</div>
+	</div>
+	<!-- Конец игры - офисный планктон -->
+	<div class="office">
+		<div class="message bg-warning border-dark border rounded">
+			Ваш балл: 75. Вы - новый офисный планктон!
+		</div>
+	</div>
+	<!-- Конец игры - бомж -->
+	<div class="homeless bg-warning border-dark border rounded">
+		Ваш балл: 0. Теперь вы бомж!
+	</div>
+	<!-- Конец игры - армия -->
+	<div class="armia">
+		<div class="message bg-warning border-dark border rounded">
+			Ваш балл: 25. Пора в армию!
+		</div>
+	</div>
+	<!-- Конец игры - богатство -->
+	<div class="rich">
+		<div class="message bg-warning border-dark border rounded ">
+			Ваш балл: 100. Теперь вы богаты!
+		</div>
+	</div>
+	<div class="armia_son">
+		<div class="message bg-warning border-dark border rounded">
+			Вы проспали, пропустили ЕГЭ, а призывной возраст-то остался! Ну ничего, посидишь в армии до следующего года!
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		let learn = document.querySelector('.learn');
+		let do_shpors = document.querySelector('.do_shpors');
+		let main = document.querySelector('.main');
+		let message = document.querySelectorAll('.message');
+		let loc1 = document.querySelector('.loc1');
+		let loc2 = document.querySelector('.loc2');
+		let loc3 = document.querySelector('.loc3');
+		let loc4 = document.querySelector('.loc4');
+		let time_txt = document.querySelector('.time');
+		let right = document.querySelectorAll('.right');
+		let shpors_txt = document.querySelector('.shpors');
+		let answers_loc1 = document.querySelector('.answers_loc1');
+		let loc2_find_answers = document.querySelector('.find_answers');
+		let choice = document.querySelector('.choice');
+		let darkness = document.querySelector('.darkness');
+		let timer_loc3 = document.querySelector('.time_loc3');
+		let loc3_choice = document.querySelector('.loc3_choice');
+		let go_choice = document.querySelector('.go_choice');
+		let go = document.querySelector('.go');
+		let not_go = document.querySelector('.not_go');
+		let anws = document.querySelectorAll('.otv');
+		let btn = document.querySelector('.btn');
+		let go_toilet = document.querySelector('.go_toilet');
+		let not_go_toilet = document.querySelector('.not_go_toilet');
+		let die = document.querySelector('.die');
+		let toilet_shpors = document.querySelector('.toilet_shpors');
+		let test = document.querySelector('.test');
+		let loc5 = document.querySelector('.loc5');
+		let class_choice = document.querySelector('.class_choice');
+		let shpors_list = document.querySelectorAll('.shpors_list');
+		let scoraya = document.querySelector('.scoraya');
+		let rich = document.querySelector('.rich');
+		let armia = document.querySelector('.armia');
+		let homeless = document.querySelector('.homeless');
+		let office = document.querySelector('.office');
+		let makdak = document.querySelector('.makdak');
+		let armia_son = document.querySelector('.armia_son');
+		let loc4_choice = document.querySelector('.loc4_choice');
+		let time_loc3 = 6;
+		let shpors = 0;
+		let time = 5;
+		let sleepiness = 0;
+		let score = 0;
+
+		// Дом - Локации
+		let roomLoc = function() {
+			main.style.backgroundImage = 'url(room.jpg)';
+			loc1.style.display = 'none';
+			loc2.style.display = 'none';
+			loc3.style.display = 'block';
+			if (sleepiness == 1) {
+				darkness.style.display = 'block';
+					let awake_motivation = 0;
+					darkness.onclick = function() {
+						awake_motivation = awake_motivation + 1;
+					}
+
+				let timer_func2 = function() {
+						timer_loc3.innerHTML = time_loc3;
+						time_loc3 = time_loc3 - 1;
+						timer_loc3.innerHTML = time_loc3;
+						if (time_loc3 == 0 & awake_motivation < 20) {
+							clearInterval(timer2);
+							timer_loc3.innerHTML = time_loc3;
+							alert('Вы проспали!');
+							loc3.style.display = 'none';
+							armia_son.style.display = 'block';
+							main.style.backgroundImage = 'url(armia.jpeg)';
+							//экран окончания игры - армейка
+						}
+						if (time_loc3 == 0 & awake_motivation >= 20) {
+							clearInterval(timer2);
+							timer_loc3.innerHTML = time_loc3;
+							alert('Вы проснулись! Правда, с трудом.');
+							darkness.style.display = 'none';
+							loc3_choice.style.display = 'block';
+						}
+					}
+					let timer2 = setInterval(timer_func2, 1000);
+			}
+		}
+
+		//Выбор "Делать шпоры"
+		do_shpors.onclick = function() {
+			message[0].innerHTML = 'Окей, делаем шпоры!';
+			choice.style.display = 'none';
+
+			let changeLoc = function() {
+
+				main.style.backgroundImage = 'url(poisk.png)';
+				loc1.style.display = 'none';
+				loc2_find_answers.style.display = 'none';
+				loc2.style.display = 'block';
+				time_txt.innerHTML = time;
+
+				let startGame = function() {
+					loc2_find_answers.style.display = 'block';
+					for (let i = 0; i < 3; i++) {
+						right[i].onclick = function() {
+							right[i].style.display = 'none';
+							shpors = shpors + 1;
+							shpors_txt.innerHTML = shpors;
+							if (shpors >= 3) {
+								shpors = 3;
+							}
+						}
+					}
+					
+
+					let timer_func = function() {
+						time = time - 1;
+						time_txt.innerHTML = time;
+						if (time == 0) {
+							clearInterval(timer);
+							time_txt.innerHTML = time;
+							alert('Все. Со шпорами закончили. Пора спать.');
+							main.style.backgroundImage = 'url(room.jpg)';
+							loc2.style.display = 'none';
+							loc3.style.display = 'block';
+							loc3_choice.style.display = 'block';
+							
+						}
+					}
+					let timer = setInterval(timer_func, 1000);
+				}
+				setTimeout(startGame, 3000);
+			}
+			setTimeout(changeLoc, 2000);
+		}
+		learn.onclick = function() {
+			message[0].innerHTML = 'Окей, будем учиться...';
+			choice.style.display = 'none';
+			answers_loc1.style.display = 'block';
+			sleepiness = 1;
+			let sleepFunc = function() {
+				alert('6 утра, пора спать');
+				roomLoc();
+			}
+			setTimeout(sleepFunc, 3000);
+		}
+
+
+
+		// Школа - локации
+		go.onclick = function() {
+			main.style.backgroundImage = 'url(class.jpg)';
+			loc3.style.display = 'none';
+			loc4.style.display = 'block';
+			go_toilet.onclick = function() {
+				main.style.backgroundImage = 'url(tualet.jpg)';
+				main.style.backgroundSize = '100%';
+				loc4.style.display = 'none';
+				loc5.style.display = 'block';
+				if (sleepiness == 1) {
+					let dieEnd = function() {
+						main.style.backgroundImage = 'url(scoraya.jpg)';
+						scoraya.style.display = 'block';
+					}
+					die.style.display = 'block';
+					setTimeout(dieEnd, 5000);
+				}
+				if (sleepiness == 0) {
+					let backtoClass = function() {
+						alert('Пора в класс!');
+						main.style.backgroundImage = 'url(class.jpg)';
+						main.style.backgroundSize = '';
+						loc4.style.display = 'block';
+						loc5.style.display = 'none';
+						test.style.display = 'block';
+						loc4_choice.style.display = 'none';
+					}
+					toilet_shpors.style.display = 'block';
+					if (shpors == 3) {
+						shpors_list[0].style.display = 'block';
+						shpors_list[1].style.display = 'block';
+						shpors_list[2].style.display = 'block';
+					}
+					if (shpors == 2) {
+						shpors_list[0].style.display = 'block';
+						shpors_list[1].style.display = 'block';
+					}
+					if (shpors == 1) {
+						shpors_list[0].style.display = 'block';
+					}
+					setTimeout(backtoClass, 5000);
+				}
+			}
+			not_go_toilet.onclick = function() {
+				test.style.display = 'block';
+				loc4_choice.display = 'none';
+			}
+		}
+		not_go.onclick = function() {
+			loc3.style.display = 'none';
+			armia_son.style.display = 'block';
+			main.style.backgroundImage = 'url(armia.jpeg)';
+			// экран окончания - армейка кнеш
+		}
+
+		//Проверка теста!
+		btn.onclick = function() {
+			alert('ЕГЭ окончен. Твой результат:');
+			if (anws[0].value == 7) {
+				score = score + 1;
+			}
+			if (anws[1].value == 31) {
+				score = score + 1;
+			}
+			if (anws[2].value == 3) {
+				score = score + 1;
+			}
+			if (anws[3].value == 3) {
+				score = score + 1;
+			}
+			if (sleepiness == 1) {
+				score = score - 1;
+			}
+			if (score == 4) {
+				rich.style.display = 'block';
+				main.style.backgroundImage = 'url(rich.webp)';
+				loc4.style.display = 'none';
+			}
+			if (score == 3) {
+				office.style.display = 'block';
+				main.style.backgroundImage = 'url(office.jpg)';
+				loc4.style.display = 'none';
+			}
+			if (score == 2) {
+				makdak.style.display = 'block';
+				main.style.backgroundImage = 'url(makdak.jpg)';
+				loc4.style.display = 'none';
+			}
+			if (score == 1) {
+				armia.style.display = 'block';
+				main.style.backgroundImage = 'url(armia.jpeg)';
+				loc4.style.display = 'none';
+			}
+			if (score == 0) {
+				homeless.style.display = 'block';
+				main.style.backgroundImage = 'url(homeless.jpg)';
+				loc4.style.display = 'none';
+			}
+		}
+
+	</script>
+</body>
+</html>
